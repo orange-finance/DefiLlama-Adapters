@@ -19,7 +19,6 @@ async function tvl(api) {
   const totalAssets = await api.multiCall({ abi: "uint256:totalAssets", calls: VAULTS.map(v => v.address) })
 
   VAULTS.forEach((v, i) => api.add(v.asset, totalAssets[i]))
-  // totalAssets.forEach((i) => api.add(ADDRESSES.arbitrum.WETH, i))
 }
 
 module.exports = {
